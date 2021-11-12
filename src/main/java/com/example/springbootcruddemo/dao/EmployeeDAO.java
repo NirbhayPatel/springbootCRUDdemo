@@ -19,4 +19,7 @@ public interface EmployeeDAO extends CrudRepository<Employee,Long> {
     @Query("select e from Employee e where e.salary = :salary")
     List<Employee> findEmployeesBySalary(@Param("salary") String salary);
     Employee findEmployeesByEmployeeId(long id);
+    /* Employee based on Salary range */
+    @Query("select e from Employee e where e.salary between :minSalary and :maxSalary")
+    List<Employee> findEmployeesBySalaryBetween(@Param("minSalary") String minSalary, @Param("maxSalary") String maxSalary);
 }

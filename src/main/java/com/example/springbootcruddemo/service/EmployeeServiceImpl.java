@@ -57,4 +57,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee findEmployeeId(long employeeID) {
         return employeeDAO.findEmployeesByEmployeeId(employeeID);
     }
+
+    @Override
+    public List<Employee> findEmployeesBySalaryBetween(String minSalary, String maxSalary) {
+        return employeeDAO.findEmployeesBySalaryBetween(minSalary,maxSalary);
+    }
 }

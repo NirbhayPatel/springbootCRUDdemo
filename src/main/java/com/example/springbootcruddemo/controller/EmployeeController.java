@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController     // for rest response
 public class EmployeeController {
 
@@ -26,6 +28,12 @@ public class EmployeeController {
         }else {
             return employeeService.findAll();
         }
+    }
+
+    // Search employee based on salary range
+    @RequestMapping(value = "salaryBetween", method = RequestMethod.GET)
+    public List<Employee> employeeListBySalaryRange(String minSalary, String maxSalary){
+        return employeeService.findEmployeesBySalaryBetween(minSalary,maxSalary);
     }
 
     // delete specific employee using employee id

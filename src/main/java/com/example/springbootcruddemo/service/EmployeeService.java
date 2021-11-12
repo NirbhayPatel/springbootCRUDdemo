@@ -13,4 +13,5 @@ public interface EmployeeService {
     List<Employee> findEmployeesBySalary(String salary);
     Employee update(Employee employee);
     Employee findEmployeeId(long employeeID);
+    List<Employee> findEmployeesBySalaryBetween(String minSalary, String maxSalary);
 }
